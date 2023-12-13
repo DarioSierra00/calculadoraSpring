@@ -2,9 +2,13 @@ package com.jacaranda.calculadora.model;
 
 import java.util.Objects;
 
+import jakarta.validation.constraints.NotNull;
+
 public class Calculadora {
 	
+	@NotNull
 	private double num1;
+	@NotNull
 	private double num2;
 	private char ope;
 	

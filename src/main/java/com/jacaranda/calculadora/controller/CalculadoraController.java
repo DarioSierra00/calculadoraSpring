@@ -46,15 +46,14 @@ public class CalculadoraController {
 	}
 	
 	@GetMapping("/resolverPotencia")
-	public String resolverPotencia(@Validated Model model, @ModelAttribute("calcP") CalculadoraPotencia calculadoraPotencia, BindingResult bindinResult){
-		if(bindinResult.hasErrors()) {
-			return "error";
-		}
-		
+	public String resolverPotencia(Model model,@Validated  @ModelAttribute("calcP") CalculadoraPotencia calculadoraPotencia, BindingResult bindinResult){
 		CalculadoraPotencia calculatorP = new CalculadoraPotencia();
 		Calculadora calculator = new Calculadora();
-		
 		model.addAttribute("calc", calculator);
+		if(bindinResult.hasErrors()) {
+			model.addAttribute("resultP", "Error al operar");
+			return "calculadora";
+		}
 		model.addAttribute("calcP", calculatorP);
 		String result = calculadoraPotencia.getResult();
 		
@@ -63,20 +62,5 @@ public class CalculadoraController {
 		return "calculadora";
 		
 	}
-	
-	@GetMapping("/error")
-	public String error(Model model, @RequestParam("msg") String msg) {
-		model.addAttribute("msg", msg);
-		return "error";
-	}
-
-	
-
-	@ExceptionHandler(Exception.class)
-	public String handleException(Exception e, HttpServletRequest request) {
-	    return "error?msg="+ e.getMessage();
-
-	}		
-	
 	
 }
