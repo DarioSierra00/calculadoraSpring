@@ -18,7 +18,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="number1">Operador</label>
 				<div>
-					+<input class="form-control input-md" id="sum" name="sum" th:field="*{ope}" value="+" type="radio" selected>
+					+<input class="form-control input-md" id="sum" name="sum" th:field="*{ope}" value="+" type="radio" checked>
 					-<input class="form-control input-md" id="min" name="min" th:field="*{ope}" value="-" type="radio">
 					*<input class="form-control input-md" id="por" name="por" th:field="*{ope}" value="*" type="radio">
 					/<input class="form-control input-md" id="div" name="div" th:field="*{ope}" value="/" type="radio">
@@ -33,6 +33,27 @@
 				
 				<button>Resolver</button>
 		<span th:text="${result}"></span>
+		</fieldset>
+	</form>
+		<form class="form-horizontal" th:action="@{resolverPotencia}" th:object="${calcP}">
+		<fieldset>
+			<legend>Calculadora Potencia</legend>
+			
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="voltios">Voltios</label>
+				<div>
+					<input class="form-control input-md" id="voltios" name="voltios" th:field="*{voltios}" type="number" placeholder="Introduce los voltios">
+				</div>
+			</div>
+			<div class="form-group">
+					<label class="col-md-4 control-label" for="amperios">Amperios</label>
+					<div>
+						<input class="form-control input-md" id="amperios" name="amperios" th:field="*{amperios}" type="number" placeholder="Introduce un amperaje">
+					</div>
+				</div>
+				
+				<button>Resolver</button>
+		<span th:text="${resultP}"></span>
 		</fieldset>
 	</form>
 </body>
