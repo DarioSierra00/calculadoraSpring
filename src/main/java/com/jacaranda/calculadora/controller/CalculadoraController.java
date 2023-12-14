@@ -51,7 +51,6 @@ public class CalculadoraController {
 		Calculadora calculator = new Calculadora();
 		model.addAttribute("calc", calculator);
 		if(bindinResult.hasErrors()) {
-			model.addAttribute("resultP", "Error al operar");
 			return "calculadora";
 		}
 		model.addAttribute("calcP", calculatorP);

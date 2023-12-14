@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -42,6 +42,8 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="voltios">Voltios</label>
 				<div>
+					<span th:if="${#fields.hasErrors('voltios')}" th:errors="*{voltios}"
+						class="help-block" id="id-error">Errores</span>
 					<input class="form-control input-md" id="voltios" name="voltios" th:field="*{voltios}" type="number" placeholder="Introduce los voltios">
 				</div>
 			</div>

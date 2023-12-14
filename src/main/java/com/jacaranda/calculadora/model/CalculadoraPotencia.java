@@ -4,8 +4,9 @@ import jakarta.validation.constraints.NotNull;
 
 public class CalculadoraPotencia {
 	
-	@NotNull
+	@NotNull(message="No puede ser nulo")
 	private double voltios;
+	@NotNull(message="No puede ser nulo")
 	private double amperios;
 	
 	public String getResult() {
